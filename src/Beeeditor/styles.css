@@ -1,0 +1,92 @@
+.beeeditor-input {
+  padding: 16px;
+  background-color: white;
+  min-height: 500px;
+}
+
+.beeeditor-input:focus-visible {
+  outline: none;
+}
+
+.beeeditor-heading-h1 {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+.beeeditor-heading-h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.beeeditor-heading-h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.beeeditor-heading-h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.beeeditor-heading-h5 {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.beeeditor-code {
+  background-color: rgb(240, 242, 245);
+  font-family: Menlo, Consolas, Monaco, monospace;
+  display: block;
+  padding: 8px 8px 8px 52px;
+  line-height: 1.53;
+  font-size: 13px;
+  margin: 8px 0 8px 0;
+  tab-size: 2;
+  overflow-x: auto;
+  position: relative;
+}
+
+.beeeditor-code:before {
+  content: attr(data-gutter);
+  position: absolute;
+  background-color: #eee;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #ccc;
+  padding: 8px;
+  color: #777;
+  white-space: pre-wrap;
+  text-align: right;
+  min-width: 25px;
+}
+
+.beeeditor-code:after {
+  content: attr(data-highlight-language);
+  top: 0;
+  right: 3px;
+  padding: 3px;
+  font-size: 10px;
+  text-transform: uppercase;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.beeeditor-quote {
+  margin: 0;
+  margin-left: 20px;
+  font-size: 15px;
+  color: rgb(101, 103, 107);
+  border-left-color: rgb(206, 208, 212);
+  border-left-width: 4px;
+  border-left-style: solid;
+  padding-left: 16px;
+}
+
+.beeeditor-list-listitem {
+  margin: 8px 32px 8px 32px;
+}

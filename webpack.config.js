@@ -10,7 +10,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
   mode: 'production',
@@ -22,9 +22,15 @@ module.exports = {
 
   module: {
     rules: [
+      { test: /\.css$/, use: [{ loader: 'style-loader' }, 'css-loader'] },
       {
         test: /\.(ts|tsx)$/,
-        use: ['ts-loader', 'babel-loader'],
+        use: [
+          // {
+          //   loader: 'ts-loader'
+          // },
+          'babel-loader'
+        ],
         exclude: /node-modules/
       }
     ]
