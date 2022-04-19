@@ -2,11 +2,6 @@ import { EditorThemeClasses } from 'lexical'
 
 export { default } from './Editor'
 
-export interface Props {
-  defaultValue?: string
-  children?: JSX.Element | JSX.Element[] | null
-}
-
 export const theme: EditorThemeClasses = {
   heading: {
     h1: 'beeeditor-heading-h1',

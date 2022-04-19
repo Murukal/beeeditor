@@ -1,8 +1,9 @@
 {
   "name": "@fantufantu/beeeditor",
-  "version": "0.0.3",
+  "version": "0.0.13",
   "description": "",
-  "main": "./src/index.ts",
+  "main": "compile/index.js",
+  "types": "types/beeeditor.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:Murukal/beeeditor.git"

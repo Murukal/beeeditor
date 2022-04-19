@@ -1,5 +1,5 @@
 // react
-import React from 'react'
+import React, { forwardRef } from 'react'
 // third
 import LexicalComposer from '@lexical/react/LexicalComposer'
 import ContentEditable from '@lexical/react/LexicalContentEditable'
@@ -23,9 +23,9 @@ import GetStartPlugin from './plugins/GetStartPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 import { theme } from '.'
 import './styles.css'
-import { Props } from '.'
+import type { EditorInstance, Props } from '../../types/beeeditor'
 
-const Editor = (props: Props) => {
+const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
   const editorConfig = {
     theme,
     onError(error: Error) {
@@ -58,10 +58,10 @@ const Editor = (props: Props) => {
       <LinkPlugin />
       <LexicalMarkdownShortcutPlugin />
       <LexicalOnChangePlugin onChange={onChange} />
-      <GetStartPlugin defaultValue={props.defaultValue} />
+      <GetStartPlugin defaultValue={props.defaultValue} ref={ref} />
       <CodeHighlightPlugin />
     </LexicalComposer>
   )
-}
+})
 
 export default Editor

@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.ts',
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'compile'),
     filename: 'index.js',
     libraryTarget: 'umd'
   },
@@ -13,7 +13,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
-  mode: 'production',
+  mode: 'development',
 
   externals: {
     react: 'react',
