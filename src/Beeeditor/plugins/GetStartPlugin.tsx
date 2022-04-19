@@ -4,6 +4,7 @@ import type { EditorInstance } from '../../../types/beeeditor'
 
 interface Props {
   defaultValue?: string
+  isReadonly?: boolean
 }
 
 const GetStartPlugin = forwardRef<EditorInstance, Props>((props, ref) => {
@@ -29,6 +30,10 @@ const GetStartPlugin = forwardRef<EditorInstance, Props>((props, ref) => {
       console.error(error)
     }
   }, [editor, props.defaultValue])
+
+  useEffect(() => {
+    editor.setReadOnly(props.isReadonly ?? false)
+  }, [editor, props.isReadonly])
 
   return null
 })

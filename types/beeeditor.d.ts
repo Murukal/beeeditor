@@ -3,6 +3,7 @@ import type { ForwardRefExoticComponent, PropsWithoutRef, ReactElement, RefAttri
 
 export interface Props {
   defaultValue?: string
+  isReadonly?: boolean
   children?: JSX.Element | JSX.Element[] | null
 }
 
@@ -12,7 +13,7 @@ export interface EditorInstance {
 
 declare const Beeeditor = (
   props: Props & {
-    ref: Ref<EditorInstance>
+    ref?: Ref<EditorInstance>
   }
 ) => ReactElement
 
