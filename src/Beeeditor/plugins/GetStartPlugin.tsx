@@ -32,7 +32,7 @@ const GetStartPlugin = forwardRef<EditorInstance, Props>((props, ref) => {
   }, [editor, props.defaultValue])
 
   useEffect(() => {
-    editor.setReadOnly(props.isReadonly ?? false)
+    editor.setReadOnly(props.isReadonly || false)
   }, [editor, props.isReadonly])
 
   return null
