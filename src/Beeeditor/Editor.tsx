@@ -58,7 +58,7 @@ const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
       <LinkPlugin />
       <LexicalMarkdownShortcutPlugin />
       <LexicalOnChangePlugin onChange={onChange} />
-      <GetStartPlugin defaultValue={props.defaultValue} ref={ref} />
+      <GetStartPlugin defaultValue={props.defaultValue} ref={ref} isReadonly={props.isReadonly} />
       <CodeHighlightPlugin />
     </LexicalComposer>
   )

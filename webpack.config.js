@@ -1,4 +1,5 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: './src/index.ts',
@@ -6,7 +7,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'compile'),
     filename: 'index.js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
 
   resolve: {
@@ -22,12 +24,14 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.css$/, use: [{ loader: 'style-loader' }, 'css-loader'], exclude: /node-modules/ },
+      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'], exclude: /node-modules/ },
       {
         test: /\.(ts|tsx)$/,
         use: ['babel-loader'],
         exclude: /node-modules/
       }
     ]
-  }
+  },
+
+  plugins: [new MiniCssExtractPlugin()]
 }
