@@ -1,6 +1,6 @@
 {
   "name": "@fantufantu/beeeditor",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "",
   "main": "compile/index.js",
   "types": "types/beeeditor.d.ts",
