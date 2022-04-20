@@ -15,7 +15,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
-  mode: 'development',
+  mode: 'production',
 
   externals: {
     react: 'react',
