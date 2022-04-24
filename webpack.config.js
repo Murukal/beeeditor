@@ -1,5 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.ts',
@@ -33,5 +35,15 @@ module.exports = {
     ]
   },
 
-  plugins: [new MiniCssExtractPlugin()]
+  devServer: {
+    contentBase: 'compile'
+  },
+
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'demo/index.html'
+    }),
+    new CleanWebpackPlugin()
+  ]
 }
