@@ -21,6 +21,7 @@ import { TableCellNode, TableNode, TableRowNode } from '@lexical/table'
 // project
 import GetStartPlugin from './plugins/GetStartPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
+import CodeLanguagePlugin from './plugins/AidPlugin'
 import { theme } from '.'
 import './styles.css'
 import type { EditorInstance, Props } from '../../types/beeeditor'
@@ -52,14 +53,15 @@ const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
     <LexicalComposer initialConfig={editorConfig as any}>
       <>{props.children}</>
       <RichTextPlugin contentEditable={<ContentEditable className='beeeditor-input' />} placeholder={null} />
+      <GetStartPlugin defaultValue={props.defaultValue} ref={ref} isReadonly={props.isReadonly} />
       <HistoryPlugin />
       <AutoFocusPlugin />
       <ListPlugin />
       <LinkPlugin />
       <LexicalMarkdownShortcutPlugin />
       <LexicalOnChangePlugin onChange={onChange} />
-      <GetStartPlugin defaultValue={props.defaultValue} ref={ref} />
       <CodeHighlightPlugin />
+      <CodeLanguagePlugin />
     </LexicalComposer>
   )
 })

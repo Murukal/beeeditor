@@ -1,22 +1,25 @@
 {
   "name": "@fantufantu/beeeditor",
-  "version": "0.0.15",
-  "description": "",
+  "version": "0.0.19",
+  "description": "一个能快速预览的md编辑器",
   "main": "compile/index.js",
   "types": "types/beeeditor.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Murukal/beeeditor.git"
+    "url": "git@github.com:murukal/beeeditor.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack server --mode=development"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "murukal",
+  "license": "MIT",
   "dependencies": {
-    "@lexical/react": "^0.2.2",
-    "lexical": "^0.2.2"
+    "@lexical/react": "^0.2.4",
+    "lexical": "^0.2.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -25,14 +28,15 @@
     "@babel/preset-typescript": "^7.16.7",
     "@types/react": "^18.0.5",
     "@types/react-dom": "^18.0.1",
-    "babel-loader": "^8.2.4",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "style-loader": "^3.3.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "webpack": "^5.72.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
   }
 }

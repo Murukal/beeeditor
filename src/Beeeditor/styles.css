@@ -1,7 +1,6 @@
 .beeeditor-input {
   padding: 16px;
   background-color: white;
-  min-height: 500px;
 }
 
 .beeeditor-input:focus-visible {
@@ -67,11 +66,11 @@
 
 .beeeditor-code:after {
   content: attr(data-highlight-language);
+  text-align: right;
   top: 0;
-  right: 3px;
-  padding: 3px;
+  right: 0;
+  padding: 4px;
   font-size: 10px;
-  text-transform: uppercase;
   position: absolute;
   color: rgba(0, 0, 0, 0.5);
 }
