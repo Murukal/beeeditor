@@ -10,13 +10,16 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack server --mode=development"
   },
   "author": "murukal",
   "license": "MIT",
   "dependencies": {
     "@lexical/react": "^0.2.4",
-    "lexical": "^0.2.4"
+    "lexical": "^0.2.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -30,8 +33,6 @@
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "webpack": "^5.72.0",

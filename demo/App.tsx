@@ -1,7 +1,8 @@
 import React from 'react'
+import Beeeditor from '../src/index'
 
 const App = () => {
-  return <>123213</>
+  return <Beeeditor />
 }
 
 export default App

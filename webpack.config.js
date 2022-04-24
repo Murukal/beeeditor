@@ -3,8 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-module.exports = {
+const config = {
   entry: './src/index.ts',
+
+  mode: 'production',
 
   output: {
     path: path.resolve(__dirname, 'compile'),
@@ -19,11 +21,6 @@ module.exports = {
 
   mode: 'production',
 
-  externals: {
-    react: 'react',
-    'react-dom': 'react-dom'
-  },
-
   module: {
     rules: [
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'], exclude: /node-modules/ },
@@ -36,8 +33,10 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: 'compile'
+    static: 'compile'
   },
+
+  performance: { hints: false },
 
   plugins: [
     new MiniCssExtractPlugin(),
@@ -46,4 +45,22 @@ module.exports = {
     }),
     new CleanWebpackPlugin()
   ]
+}
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    // 开发模式下的入口改为demo下得index.ts
+    config.entry = './demo/index.tsx'
+
+    // devtool
+    config.devtool = 'inline-source-map'
+  } else {
+    // 生产模式打包，需要排除react和react-dom
+    config.externals = {
+      react: 'react',
+      'react-dom': 'react-dom'
+    }
+  }
+
+  return config
 }

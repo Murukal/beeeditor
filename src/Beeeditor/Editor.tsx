@@ -21,6 +21,7 @@ import { TableCellNode, TableNode, TableRowNode } from '@lexical/table'
 // project
 import GetStartPlugin from './plugins/GetStartPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
+import CodeLanguagePlugin from './plugins/AidPlugin'
 import { theme } from '.'
 import './styles.css'
 import type { EditorInstance, Props } from '../../types/beeeditor'
@@ -60,6 +61,7 @@ const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
       <LexicalMarkdownShortcutPlugin />
       <LexicalOnChangePlugin onChange={onChange} />
       <CodeHighlightPlugin />
+      <CodeLanguagePlugin />
     </LexicalComposer>
   )
 })
