@@ -19,8 +19,6 @@ const config = {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
-  mode: 'production',
-
   module: {
     rules: [
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'], exclude: /node-modules/ },
@@ -36,8 +34,6 @@ const config = {
     static: 'compile'
   },
 
-  performance: { hints: false },
-
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
@@ -51,9 +47,12 @@ module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     // 开发模式下的入口改为demo下得index.ts
     config.entry = './demo/index.tsx'
-
     // devtool
     config.devtool = 'inline-source-map'
+    // performance
+    config.performance = {
+      hints: false
+    }
   } else {
     // 生产模式打包，需要排除react和react-dom
     config.externals = {

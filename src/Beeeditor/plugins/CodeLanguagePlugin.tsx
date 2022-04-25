@@ -1,6 +1,5 @@
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
-import { useEffect, useMemo, useState } from 'react'
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { CodeNode, getCodeLanguages } from '@lexical/code'
 import { $getNodeByKey } from 'lexical'
 
