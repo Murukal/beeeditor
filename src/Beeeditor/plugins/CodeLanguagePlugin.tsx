@@ -13,6 +13,9 @@ const CodeLanguagePlugin = () => {
 
   const languages = useMemo(() => getCodeLanguages(), [])
 
+  // 只读模式下，当前插件不生效
+  if (editor.isReadOnly()) return null
+
   useEffect(() => {
     editor.registerMutationListener(CodeNode, (mutations) => {
       for (const [key, type] of mutations) {
