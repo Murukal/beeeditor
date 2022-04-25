@@ -34,6 +34,11 @@ const config = {
     static: 'compile'
   },
 
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom'
+  },
+
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
