@@ -22,7 +22,6 @@ import { TableCellNode, TableNode, TableRowNode } from '@lexical/table'
 import GetStartPlugin from './plugins/GetStartPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 import CodeLanguagePlugin from './plugins/CodeLanguagePlugin'
-import { getTheme } from '.'
 import './styles/index.css'
 import type { EditorInstance, Props } from '../../types/beeeditor'
 
