@@ -22,25 +22,17 @@ import { TableCellNode, TableNode, TableRowNode } from '@lexical/table'
 import GetStartPlugin from './plugins/GetStartPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 import CodeLanguagePlugin from './plugins/CodeLanguagePlugin'
+import { getTheme } from '.'
 import './styles/index.css'
 import type { EditorInstance, Props } from '../../types/beeeditor'
 
 const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
+  const theme = getTheme({
+    isReadonly: props.isReadonly
+  })
+
   const editorConfig = {
-    theme: {
-      heading: {
-        h1: 'beeeditor-heading-h1',
-        h2: 'beeeditor-heading-h2',
-        h3: 'beeeditor-heading-h3',
-        h4: 'beeeditor-heading-h4',
-        h5: 'beeeditor-heading-h5'
-      },
-      code: 'beeeditor-code',
-      quote: 'beeeditor-quote',
-      list: {
-        listitem: 'beeeditor-list-listitem'
-      }
-    },
+    theme,
 
     onError(error: Error) {
       throw error
