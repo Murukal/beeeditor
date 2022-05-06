@@ -22,16 +22,22 @@ import { TableCellNode, TableNode, TableRowNode } from '@lexical/table'
 import GetStartPlugin from './plugins/GetStartPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 import CodeLanguagePlugin from './plugins/CodeLanguagePlugin'
-import { theme } from '.'
-import './styles.css'
+import { getTheme } from '.'
+import './styles/index.css'
 import type { EditorInstance, Props } from '../../types/beeeditor'
 
 const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
+  const theme = getTheme({
+    isReadonly: props.isReadonly
+  })
+
   const editorConfig = {
     theme,
+
     onError(error: Error) {
       throw error
     },
+
     nodes: [
       HeadingNode,
       ListNode,
@@ -50,7 +56,7 @@ const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
   const onChange = () => {}
 
   return (
-    <LexicalComposer initialConfig={editorConfig as any}>
+    <LexicalComposer initialConfig={editorConfig}>
       <>{props.children}</>
       <RichTextPlugin contentEditable={<ContentEditable className='beeeditor-input' />} placeholder={null} />
       <GetStartPlugin defaultValue={props.defaultValue} ref={ref} isReadonly={props.isReadonly} />

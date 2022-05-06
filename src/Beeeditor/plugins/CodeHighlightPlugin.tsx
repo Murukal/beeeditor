@@ -4,9 +4,11 @@ import { useEffect } from 'react'
 
 const CodeHighlightPlugin = () => {
   const [editor] = useLexicalComposerContext()
+
   useEffect(() => {
     return registerCodeHighlighting(editor)
   }, [editor])
+
   return null
 }
 

@@ -1,0 +1,28 @@
+.beeeditor-input {
+  padding: 16px;
+  background-color: white;
+}
+
+.beeeditor-input:focus-visible {
+  outline: none;
+}
+
+.beeeditor-quote {
+  margin: 0;
+  margin-left: 20px;
+  font-size: 15px;
+  color: rgb(101, 103, 107);
+  border-left-color: rgb(206, 208, 212);
+  border-left-width: 4px;
+  border-left-style: solid;
+  padding-left: 16px;
+}
+
+/* 引入code样式 */
+@import url(./code.css);
+
+/* 引入标题样式 */
+@import url(./heading.css);
+
+/* 引入列表样式 */
+@import url(./list.css);
