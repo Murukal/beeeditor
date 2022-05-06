@@ -1,6 +1,6 @@
 {
   "name": "@fantufantu/beeeditor",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "一个能快速预览的md编辑器",
   "main": "compile/index.js",
   "types": "types/beeeditor.d.ts",
