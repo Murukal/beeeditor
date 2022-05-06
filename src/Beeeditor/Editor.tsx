@@ -1,5 +1,5 @@
 // react
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 // third
 import LexicalComposer from '@lexical/react/LexicalComposer'
 import ContentEditable from '@lexical/react/LexicalContentEditable'
@@ -27,31 +27,36 @@ import './styles/index.css'
 import type { EditorInstance, Props } from '../../types/beeeditor'
 
 const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
-  const theme = getTheme({
-    isReadonly: props.isReadonly
-  })
+  const theme = useMemo(() => {
+    return getTheme({
+      isReadonly: props.isReadonly
+    })
+  }, [props.isReadonly])
 
-  const editorConfig = {
-    theme,
+  const editorConfig = useMemo(
+    () => ({
+      theme,
 
-    onError(error: Error) {
-      throw error
-    },
+      onError(error: Error) {
+        throw error
+      },
 
-    nodes: [
-      HeadingNode,
-      ListNode,
-      ListItemNode,
-      QuoteNode,
-      CodeNode,
-      CodeHighlightNode,
-      TableNode,
-      TableCellNode,
-      TableRowNode,
-      AutoLinkNode,
-      LinkNode
-    ]
-  }
+      nodes: [
+        HeadingNode,
+        ListNode,
+        ListItemNode,
+        QuoteNode,
+        CodeNode,
+        CodeHighlightNode,
+        TableNode,
+        TableCellNode,
+        TableRowNode,
+        AutoLinkNode,
+        LinkNode
+      ]
+    }),
+    [theme]
+  )
 
   const onChange = () => {}
 
