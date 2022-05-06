@@ -16,8 +16,8 @@
   "author": "murukal",
   "license": "MIT",
   "dependencies": {
-    "@lexical/react": "0.2.4",
-    "lexical": "0.2.4"
+    "@lexical/react": "^0.2.5",
+    "lexical": "^0.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

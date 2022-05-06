@@ -8,7 +8,7 @@ const CodeLanguagePlugin = () => {
   const [top, setTop] = useState(100)
   const [left, setLeft] = useState(200)
   const [isShow, setIsShow] = useState(false)
-  const [node, setNode] = useState<CodeNode>()
+  const [node, setNode] = useState<CodeNode | null>(null)
 
   const languages = useMemo(() => getCodeLanguages(), [])
 
@@ -22,7 +22,7 @@ const CodeLanguagePlugin = () => {
         if (type !== 'created') return
 
         const element = editor.getElementByKey(key)
-        const node = $getNodeByKey(key) as CodeNode
+        const node = $getNodeByKey<CodeNode>(key)
 
         element?.addEventListener('click', (e) => {
           // 类型断言
@@ -35,11 +35,11 @@ const CodeLanguagePlugin = () => {
           setNode(node)
           setTop(e.clientY - e.offsetY + 28)
           setLeft(e.clientX - e.offsetX + target.clientWidth - 88)
-          // 组织冒泡
+          // 阻止冒泡
           e.stopPropagation()
         })
 
-        // 鼠标移开，不显示
+        // 其余点击事件，关闭
         document?.addEventListener('click', () => {
           setIsShow(false)
         })
