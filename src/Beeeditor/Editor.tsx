@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react'
 // third
 import LexicalComposer from '@lexical/react/LexicalComposer'
 import ContentEditable from '@lexical/react/LexicalContentEditable'
+import { TRANSFORMERS } from '@lexical/markdown'
 
 import RichTextPlugin from '@lexical/react/LexicalRichTextPlugin'
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
@@ -17,6 +18,7 @@ import { HeadingNode, QuoteNode } from '@lexical/rich-text'
 import { ListItemNode, ListNode } from '@lexical/list'
 import { AutoLinkNode, LinkNode } from '@lexical/link'
 import { TableCellNode, TableNode, TableRowNode } from '@lexical/table'
+import { HorizontalRuleNode } from '@lexical/react/LexicalHorizontalRuleNode'
 
 // project
 import GetStartPlugin from './plugins/GetStartPlugin'
@@ -49,7 +51,8 @@ const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
       TableCellNode,
       TableRowNode,
       AutoLinkNode,
-      LinkNode
+      LinkNode,
+      HorizontalRuleNode
     ]
   }
 
@@ -64,7 +67,7 @@ const Editor = forwardRef<EditorInstance, Props>((props, ref) => {
       <AutoFocusPlugin />
       <ListPlugin />
       <LinkPlugin />
-      <LexicalMarkdownShortcutPlugin />
+      <LexicalMarkdownShortcutPlugin transformers={TRANSFORMERS} />
       <LexicalOnChangePlugin onChange={onChange} />
       <CodeHighlightPlugin />
       <CodeLanguagePlugin />
